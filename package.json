@@ -67,6 +67,7 @@
     "@teamleader/ui-illustrations": "^0.0.4",
     "@teamleader/ui-typography": "^0.1.2",
     "@teamleader/ui-utilities": "^0.0.5",
+    "babel-plugin-styled-components": "^1.5.1",
     "classnames": "^2.2.5",
     "lodash.omit": "^4.5.0",
     "lodash.pick": "^4.4.0",
@@ -77,7 +78,8 @@
     "react-dom": "^16.3.1",
     "react-resize-detector": "^2.3.0",
     "react-select": "^2.0.0",
-    "react-transition-group": "^2.2.1"
+    "react-transition-group": "^2.2.1",
+    "styled-components": "^3.4.5"
   },
   "devDependencies": {
     "@sambego/storybook-state": "^1.0.7",
@@ -176,7 +178,6 @@
     "precommit": "pretty-quick --staged",
     "prettier": "prettier --write '**/*.{js,json,md,css}'",
     "prepare": "npm run build",
-    "start": "better-npm-run start",
     "start": "PORT=${PORT:-3000}; better-npm-run start --port $PORT",
     "build-storybook": " better-npm-run compile"
   }
