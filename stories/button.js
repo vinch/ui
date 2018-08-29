@@ -18,17 +18,21 @@ storiesOf('Buttons', module)
   .addDecorator(withKnobs)
   .add('with text', () => (
     <Button
+      element={select('Element', elements, 'button')}
       label="Button"
       level={select('Level', levels, 'secondary')}
       disabled={boolean('Disabled', false)}
       fullWidth={boolean('Full width', false)}
+      inverse={boolean('Inverse', false)}
       processing={boolean('Processing', false)}
       size={select('Size', sizes, 'medium')}
     />
   ))
   .add('with icon', () => (
     <Button
+      element={select('Element', elements, 'button')}
       icon={select('Size', sizes, 'medium') === 'small' ? <IconAddSmallOutline /> : <IconAddMediumOutline />}
+      inverse={boolean('Inverse', false)}
       level={select('Level', levels, 'secondary')}
       disabled={boolean('Disabled', false)}
       fullWidth={boolean('Full width', false)}
@@ -38,8 +42,10 @@ storiesOf('Buttons', module)
   ))
   .add('with text and icon', () => (
     <Button
+      element={select('Element', elements, 'button')}
       icon={select('Size', sizes, 'medium') === 'small' ? <IconAddSmallOutline /> : <IconAddMediumOutline />}
       iconPlacement={select('Icon placement', iconPositions, 'left')}
+      inverse={boolean('Inverse', false)}
       label="Button"
       level={select('Level', levels, 'secondary')}
       disabled={boolean('Disabled', false)}
@@ -51,6 +57,7 @@ storiesOf('Buttons', module)
   .add('with custom element', () => (
     <Button
       element={select('Element', elements, 'a')}
+      inverse={boolean('Inverse', false)}
       label="Button"
       level={select('Level', levels, 'secondary')}
       disabled={boolean('Disabled', false)}
