@@ -3,8 +3,32 @@ import PropTypes from 'prop-types';
 import LoadingSpinner from '../loadingSpinner';
 import cx from 'classnames';
 import theme from './theme.css';
+import {
+  buttonBaseStyles,
+  destructiveButtonStyles,
+  outlineButtonStyles,
+  outlineInverseButtonStyles,
+  primaryButtonStyles,
+  secondaryButtonStyles,
+  smallButtonStyes,
+  mediumButtonStyes,
+  largeButtonStyes,
+} from './theme';
+import styled from 'styled-components';
 
 class Button extends PureComponent {
+  UIButton = () => styled[this.props.element]`
+    ${buttonBaseStyles}
+    ${props => props.level == 'destructive' && destructiveButtonStyles}
+    ${props => props.level == 'outline' && !props.inverse && outlineButtonStyles}
+    ${props => props.level == 'outline' && props.inverse && outlineInverseButtonStyles}
+    ${props => props.level == 'primary' && primaryButtonStyles}
+    ${props => props.level == 'secondary' && secondaryButtonStyles}
+    ${props => props.size == 'small' && smallButtonStyes}
+    ${props => props.size == 'medium' && mediumButtonStyes}
+    ${props => props.size == 'large' && largeButtonStyes}
+  `;
+
   getSpinnerColor() {
     const { inverse, level } = this.props;
 
@@ -73,8 +97,9 @@ class Button extends PureComponent {
     };
 
     return React.createElement(
-      element,
-      props,
+      this.UIButton(),
+      this.props,
+      //props,
       icon && iconPlacement === 'left' ? icon : null,
       label || children ? (
         <span className={theme['children']}>
