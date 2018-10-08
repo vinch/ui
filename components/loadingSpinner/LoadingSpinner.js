@@ -3,16 +3,19 @@ import PropTypes from 'prop-types';
 import Box from '../box';
 import cx from 'classnames';
 import theme from './theme.css';
+import InjectColor from '../hoc/injectColor';
+import InjectSize from '../hoc/injectSize';
+import InjectTint from '../hoc/injectTint';
 
 class LoadingSpinner extends PureComponent {
   render() {
-    const { className, color, size, tint, ...others } = this.props;
+    const { className, size, colorClassName, tintClassName, sizeClassName, ...others } = this.props;
 
     const classNames = cx(
       theme['loading-spinner'],
-      theme[`is-${color}`],
-      theme[`is-${size}`],
-      theme[`is-${tint}`],
+      theme[colorClassName],
+      theme[tintClassName],
+      theme[sizeClassName],
       className,
     );
 
@@ -22,15 +25,6 @@ class LoadingSpinner extends PureComponent {
 
 LoadingSpinner.propTypes = {
   className: PropTypes.string,
-  color: PropTypes.oneOf(['aqua', 'gold', 'mint', 'neutral', 'ruby', 'teal', 'violet']),
-  size: PropTypes.oneOf(['small', 'medium']),
-  tint: PropTypes.oneOf(['lightest', 'light', 'normal', 'dark', 'darkest']),
 };
 
-LoadingSpinner.defaultProps = {
-  color: 'teal',
-  size: 'medium',
-  tint: 'darkest',
-};
-
-export default LoadingSpinner;
+export default InjectSize(InjectTint(InjectColor(LoadingSpinner)));
