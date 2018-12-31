@@ -154,7 +154,7 @@
   }
 
   &.selected {
-    background-color: var(--menu-item-selected-background);
+    background-color: red;
     font-weight: 500;
   }
 

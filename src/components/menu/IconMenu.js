@@ -41,7 +41,6 @@ class IconMenu extends PureComponent {
     } = this.props;
 
     const buttonIcon = icon || <IconMoreMediumOutline />;
-
     return (
       <Box data-teamleader-ui="icon-menu" {...other} className={cx(theme['icon-menu'], className)}>
         <IconButton className={theme['icon']} icon={buttonIcon} onClick={this.handleButtonClick} />
