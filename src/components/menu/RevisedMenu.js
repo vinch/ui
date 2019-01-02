@@ -29,8 +29,6 @@ class Menu extends PureComponent {
         return item;
       }
 
-      console.log('selectable', selectable);
-
       if (item.type === MenuItemType) {
         return React.cloneElement(item, {
           selected: typeof item.props.value !== 'undefined' && selectable && item.props.value === selected,
